@@ -1,4 +1,4 @@
-# Application de Conversion d'Images
+# Application de conversion d'images
 
 ![Illustration de l'auteur](./img/pharallaxe.png)
 
@@ -10,7 +10,7 @@ Ce projet est sous licence [Apache](./LICENSE).
 
 ## Contenu
 
-- [Application de Conversion d'Images](#application-de-conversion-dimages)
+- [Application de conversion d'images](#application-de-conversion-dimages)
   - [Licence](#licence)
   - [Contenu](#contenu)
   - [Fonctionnalités](#fonctionnalités)
