@@ -60,6 +60,7 @@ pip install pillow
 
    - Placez vos images JPG dans le dossier "default".
    - Assurez-vous que le dossier final existe ou sera créé automatiquement.
+   - La qualité est à 80%.
 
 2) Exécution du Script :
 
