@@ -2,11 +2,6 @@
 from PIL import Image  # Pour manipuler les images
 import os  # Pour interagir avec le système de fichiers
 
-# Fonction pour convertir une image
-
-
-import os
-from PIL import Image
 
 def convert_image(image_path, output_quality, resolutions, final_directory):
     # Extraire le nom de base et l'extension du fichier
@@ -37,6 +32,10 @@ def convert_image(image_path, output_quality, resolutions, final_directory):
 
             # Redimensionner l'image tout en gardant les proportions
             img = img.resize((new_width, new_height), Image.Resampling.LANCZOS)
+            
+            # Convertir en mode RGB si nécessaire pour le format JPEG
+            if img.mode in ("RGBA", "P"):
+                img = img.convert("RGB")
 
             # Chemin pour enregistrer le fichier JPG
             jpg_path = os.path.join(resolution_directory, f"{base_name}.jpg")
@@ -62,7 +61,7 @@ def process_all_images(default_directory, output_quality, resolutions, final_dir
     # Lister tous les fichiers dans le dossier 'default'
     for file in os.listdir(default_directory):
         # Vérifier si le fichier est une image JPG
-        if file.lower().endswith('.jpg') or file.lower().endswith('.png'):
+        if file.lower().endswith(('.jpg', '.png', '.webp')):
             # Chemin complet vers le fichier image
             image_path = os.path.join(default_directory, file)
             # Convertir l'image avec les paramètres donnés
@@ -71,11 +70,12 @@ def process_all_images(default_directory, output_quality, resolutions, final_dir
 
 
 # Obtenir le chemin du répertoire où se trouve le script
-script_directory = os.path.dirname(os.path.realpath(__file__))
+current_directory = os.getcwd()
+print(current_directory)
 
 # Définir les chemins des dossiers 'default' et 'final'
-default_directory = os.path.join(script_directory, 'default')
-final_directory = os.path.join(script_directory, 'final')
+default_directory = os.path.join(current_directory, 'default')
+final_directory = os.path.join(current_directory, 'final')
 
 # Définir la qualité de sortie pour les images converties (entre 0 et 100)
 output_quality = 80
