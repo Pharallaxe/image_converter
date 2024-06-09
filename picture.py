@@ -62,7 +62,7 @@ def process_all_images(default_directory, output_quality, resolutions, final_dir
     # Lister tous les fichiers dans le dossier 'default'
     for file in os.listdir(default_directory):
         # Vérifier si le fichier est une image JPG
-        if file.lower().endswith('.jpg'):
+        if file.lower().endswith('.jpg') or file.lower().endswith('.png'):
             # Chemin complet vers le fichier image
             image_path = os.path.join(default_directory, file)
             # Convertir l'image avec les paramètres donnés
